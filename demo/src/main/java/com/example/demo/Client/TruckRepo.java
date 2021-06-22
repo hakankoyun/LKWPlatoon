@@ -11,7 +11,7 @@ public class LKW {
     List<LKW> lkwList = new ArrayList<>();
     int id = 0;
 
-    public LKW(int id, int i, int i1, int i2, boolean b) {
+    public LKW(int i, int i1, int i2, boolean b) {
     }
 
 
@@ -27,20 +27,20 @@ public class LKW {
         if (lkwList.isEmpty())
         {
             //Erster überhaupt im Platoon
-            lkw = new LKW(id, 0, 0, 80, true);
+            lkw = new LKW(0, 0, 80, true);
             lkwList.add(0, lkw);
         }
         else if(position == lkwList.size())
         {
             //Letzter im Platoon
-            lkw = new LKW(id, lkwList.get(position - 1).getId(),0,80,false);
+            lkw = new LKW(lkwList.get(position - 1).getId(),0,80,false);
             lkwList.add(position, lkw);
-            lkwList.get(position-1).setHintereId(id);
+            lkwList.get(position-1).setHintereIdById(id);
         }
         else if(position == 0)
         {
             // Einer Neuer will auf Leader
-            lkw = new LKW(id, 0,lkwList.get(position).getId(), 80, true);
+            lkw = new LKW(0,lkwList.get(position).getId(), 80, true);
             lkwList.add(0, lkw);
             lkwList.get(position +1).setVordereId(id);
             lkwList.get(position+1).setFührer(false);
@@ -49,9 +49,9 @@ public class LKW {
         else
         {
             // Neuer Truck wird hinzugefügt
-            lkw = new LKW(id,lkwList.get(position-1).getId(),lkwList.get(position).getId(),80,false);
+            lkw = new LKW(lkwList.get(position-1).getId(),lkwList.get(position).getId(),80,false);
             lkwList.add(position, lkw);
-            lkwList.get(position-1).setHintereId();
+            lkwList.get(position-1).setHintereIdById();
             lkwList.get(position+1).setVordereId();
         }
         return lkw;
@@ -102,7 +102,7 @@ public class LKW {
         }
     }
 
-    public void setHintereIdById(int id, int newHintereId)
+    public void setHintereIdById(int id)
     {
         for (int i=0; i < lkwList.size(); i++) {
             if(id == lkwList.get(i).getId()){
@@ -116,7 +116,7 @@ public class LKW {
         int vordereId = lkw.getVordereId();
         int hintereId = lkw.getHintereId();
         if(vordereId!=0){
-            setHintereIdById(vordereId, hintereId);
+            setHintereIdById(vordereId);
         }
         if (hintereId != 0)
         {

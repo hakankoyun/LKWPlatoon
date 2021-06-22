@@ -7,7 +7,7 @@ import java.util.List;
 @RestController
 public class Controller {
 
-    LKW lkw = new LKW(1,2,3,80,true);
+    LKW lkw = new LKW(2,3,80,true);
     LKWService lkwService = new LKWService();
 
     @GetMapping(path="/addLKW/{position}")
