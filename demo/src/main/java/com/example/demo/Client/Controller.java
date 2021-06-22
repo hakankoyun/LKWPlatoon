@@ -1,6 +1,5 @@
 package com.example.demo.Client;
 
-import com.example.demo.Client.LKWService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public class Controller {
 
     @RequestMapping(path ="/showLKWAgentById/{id}")
     public @ResponseBody LKW show(){
-        return lkwService.getOneLKWkById(lkw.getId());
+        return lkwService.getOneLKWkById(lkw.getOneLKWById());
     }
 
     @RequestMapping(path = "/stop")

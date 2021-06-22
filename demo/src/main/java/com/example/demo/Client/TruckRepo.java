@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public class LKW {
 
-    List<LKW> LKWList = new ArrayList<>();
+    List<LKW> lkwList = new ArrayList<>();
     int id = 0;
 
     public LKW(int id, int i, int i1, int i2, boolean b) {
@@ -48,11 +48,11 @@ public class LKW {
         }
         else
         {
-            // Neuer Truck wird mittendrin hinzugefügt
+            // Neuer Truck wird hinzugefügt
             lkw = new LKW(id,lkwList.get(position-1).getId(),lkwList.get(position).getId(),80,false);
             lkwList.add(position, lkw);
-            lkwList.get(position-1).setHintereId(id);
-            lkwList.get(position+1).setVordereId(id);
+            lkwList.get(position-1).setHintereId();
+            lkwList.get(position+1).setVordereId();
         }
         return lkw;
     }
@@ -69,9 +69,9 @@ public class LKW {
     }
 
     public int getLKWFührerId(){
-        return lkwList.get(0).getId();
+        return lkwList.get(0).getLKWFührerId();
     }
-    public LKW getOneLKWById(int id) {
+    public int getOneLKWById() {
         LKW l = null;
 
         l = lkwList.get(id);
