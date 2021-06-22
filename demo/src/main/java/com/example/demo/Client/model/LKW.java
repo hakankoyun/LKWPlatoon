@@ -5,17 +5,17 @@ import com.example.demo.Client.Socket.SocketClient;
 public class LKW {
 
     int id;
-    int fId;
-    int bId;
-    int spd;
-    boolean leader;
+    int vordereId;
+    int hintereId;
+    int geschwindigkeit;
+    boolean führer;
 
-    public LKW(int id, int frontId, int backId, int speed, boolean leader) {
+    public LKW(int id, int vordereId, int hintereId, int geschwindigkeit, boolean führer) {
         this.id = id;
-        this.fId = frontId;
-        this.bId = backId;
-        this.spd = speed;
-        this.leader = leader;
+        this.vordereId = vordereId;
+        this.hintereId = hintereId;
+        this.geschwindigkeit = geschwindigkeit;
+        this.führer = führer;
     }
 
     public int getId() {
@@ -26,39 +26,37 @@ public class LKW {
         this.id = id;
     }
 
-    public int getFrontId() {
-        return fId;
+    public int getVordereId() {
+        return vordereId;
     }
 
-    public void setFrontId(int frontId) {
-        this.fId = frontId;
+    public void setVordereId(int vordereId) {
+        this.vordereId = vordereId;
     }
 
-    public int getBackId() {
-        return bId;
+    public int getHintereId() {
+        return hintereId;
     }
 
-    public void setBackId(int backId) {
-        this.bId = backId;
+    public void setHintereId(int hintereId) {
+        this.hintereId = hintereId;
     }
 
-    public int getSpeed() {
-        return spd;
+    public int getGeschwindigkeit() {
+        return geschwindigkeit;
     }
 
-    public void setSpeed(int speed) {
-        this.spd = speed;
+    public void setGeschwindigkeit(int geschwindigkeit) {
+        this.geschwindigkeit = geschwindigkeit;
     }
 
-    public void setLeader(boolean leader) {
-        this.leader = leader;
-    }
+    public void setFührer(boolean führer) { this.führer = führer; }
 
-    public Boolean getLeader(){return leader;}
+    public Boolean getFührer(){return führer();}
 
     @Override
     public String toString()
     {
-        return "id:" + id + ", front:" + fId + ", back:" + bId + ", speed:" + spd;
+        return "id:" + id + ", vorne:" + vordereId + ", hintere:" + hintereId + ", geschwindigkeit:" + geschwindigkeit;
     }
 }

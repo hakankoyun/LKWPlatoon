@@ -20,18 +20,18 @@ public class Start {
         try {
             LKW = HTTPConec.register(10);
 
-            if (LKW.getFrontId() != 0)
+            if (LKW.getVordereId() != 0)
             {
-                front = new SocketClient(LKW.getFrontId(), 2);
-                front.sendMessage("i bin hinter dir" + LKW.getId()); // "Aktuelle Geschwindigkeit: "); //+ truck.getSpeed());
+                front = new SocketClient(LKW.getVordereId(), 2);
+                front.sendMessage("Ich habe mich hinten angeschlossen " + LKW.getId());
                 front.closeConnection();
                 frontExist = true;
             }
-            if (LKW.getBackId() != 0)
+            if (LKW.getHintereId() != 0)
             {
-                back = new SocketClient(LKW.getBackId(), 1);
+                back = new SocketClient(LKW.getHintereId(), 1);
                 back.listen();
-                back.sendMessage("i bin vor dir" + LKW.getId()); //"Aktuelle Geschwindigkeit: "); //+truck.getSpeed());
+                back.sendMessage("Ich habe mich vor dir angeschlossen " + LKW.getId());
             }
             server = new SocketServer(LKW.getId(), 1);
             firstConnectionServer = new SocketServer(LKW.getId(), 2);
@@ -44,24 +44,24 @@ public class Start {
         }
     }
 
-    public static void newSpeed(int speed){
+    public static void newGeschwindigkeit(int geschwindigkeit){
 
-        LKW.setSpeed(speed);
+        LKW.setGeschwindigkeit(geschwindigkeit);
         if (back != null){
-            back.sendMessage("Aktuelle Geschwindigkeit: "+ LKW.getSpeed());
+            back.sendMessage("Aktuelle Geschwindigkeit: "+ LKW.getGeschwindigkeit());
         }
     }
 
-    public static void nFC(int id){
+    public static void NeueVordereVerbindung(int id){
         frontExist = true;
-        server.sendMessage("Aktuelle Geschwindigkeit: " + LKW.getSpeed());
+        server.sendMessage("Aktuelle Geschwindigkeit: " + LKW.getGeschwindigkeit());
     }
 
-    public static void nBC(int id){
-        LKW.setBackId(id);
-        back = new SocketClient(LKW.getBackId(), 1);
+    public static void NeueHintereVerbindung(int id){
+        LKW.setHintereId(id);
+        back = new SocketClient(LKW.getHintereId(), 1);
         back.listen();
-        back.sendMessage("Aktuelle Geschwindigkeit: "+ LKW.getSpeed());
+        back.sendMessage("Aktuelle Geschwindigkeit: "+ LKW.getGeschwindigkeit());
     }
 
 }

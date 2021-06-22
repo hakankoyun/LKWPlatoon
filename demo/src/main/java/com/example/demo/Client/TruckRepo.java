@@ -112,7 +112,7 @@ public class LKW {
     }
 
     public void exit(int id){
-        LKW lkw = getTruckById(id);
+        LKW lkw = getLKWById(id);
         int vordereId = lkw.getVordereId();
         int hintereId = lkw.getHintereId();
         if(vordereId!=0){

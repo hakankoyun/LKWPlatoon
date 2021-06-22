@@ -75,22 +75,22 @@ public class SocketClient {
 
     private void messageHandler(String message)
     {
-        if (message.contains("i bin hinter dir"))
+        if (message.contains("Ich bin jetzt hinter dir"))
         {
             String id = message.substring(16);
-            Start.nBC(Integer.parseInt(id));
+            Start.NeueHintereVerbindung(Integer.parseInt(id));
         }
 
-        else if (message.contains("i bin vor dir"))
+        else if (message.contains("Ich bin jetzt vor dir "))
         {
             String id = message.substring(13);
-            Start.nFC(Integer.parseInt(id));
+            Start.NeueVordereVerbindung(Integer.parseInt(id));
         }
 
         else if (message.contains("Aktuelle Geschwindigkeit: "))
         {
             int speed = Integer.parseInt(message.substring(26));
-            Start.newSpeed(Integer.parseInt(String.valueOf(speed)));
+            Start.newGeschwindigkeit(Integer.parseInt(String.valueOf(speed)));
         }
     }
 }

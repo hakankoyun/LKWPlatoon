@@ -24,7 +24,7 @@ public class Controller {
 
     @RequestMapping(path ="/showLKWAgentById/{id}")
     public @ResponseBody LKW show(){
-        return lkwService.getOneLKWById(lkw.getId());
+        return lkwService.getOneLKWkById(lkw.getId());
     }
 
     @RequestMapping(path = "/stop")
@@ -55,7 +55,7 @@ public class Controller {
 
     @GetMapping(path= "/SocketDa/{id}")
     public String socketDa(@PathVariable int id){
-        lkwService.verbunden(id);
+        lkwService.verbinden(id);
         return "verbunden";
     }
 }

@@ -28,10 +28,10 @@ public class HTTPConec {
 
         LKW LKW = new LKW(
                 jsonObject.getInt("id"),
-                jsonObject.getInt("frontId"),
-                jsonObject.getInt("backId"),
-                jsonObject.getInt("speed"),
-                jsonObject.getBoolean("leader")
+                jsonObject.getInt("vordereId"),
+                jsonObject.getInt("hintereId"),
+                jsonObject.getInt("geschwindigkeit"),
+                jsonObject.getBoolean("führer")
         );
         return LKW;
     }
